@@ -1,1 +1,1 @@
-web: java -jar target/maven-badges-generator.jar -Dserver.port=$PORT
+web: java -jar target/maven-badges-generator.jar --server.port=$PORT
