@@ -20,6 +20,11 @@ public class BadgeGenerateController {
   @Autowired
   private MavenRepositoryResolver mavenRepositoryResolver;
 
+  @GetMapping("/")
+  public String index() {
+    return REDIRECT_TO + "https://github.com/Ivan97/maven-badges-generator";
+  }
+
   @GetMapping("/image/{groupId}/{artifactId}")
   public String redirectDependencyToImage(@PathVariable String groupId,
       @PathVariable String artifactId) {
