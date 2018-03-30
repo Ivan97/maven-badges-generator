@@ -7,8 +7,8 @@ package tech.iooo.coco.domain;
  */
 public enum StyleEnum {
 
-  PLASTIC("plastic"), FLAT("flat"), FLAT_SQUARE("flat--square"), FOR_THE_BADGE(
-      "for--the--badge"), SOCIAL("social");
+  PLASTIC("plastic"), FLAT("flat"), FLAT_SQUARE("flat-square"), FOR_THE_BADGE(
+      "for-the-badge"), SOCIAL("social");
 
   private final String style;
 
