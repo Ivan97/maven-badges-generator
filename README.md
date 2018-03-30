@@ -1,5 +1,7 @@
-# maven-badges-generator [![Build Status](https://travis-ci.org/Ivan97/maven-badges-generator.svg?branch=master)](https://travis-ci.org/Ivan97/maven-badges-generator)
-
+# maven-badges-generator
+ 
+[![Build Status](https://travis-ci.org/Ivan97/maven-badges-generator.svg?branch=master)](https://travis-ci.org/Ivan97/maven-badges-generator)
+[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen.svg?longCache=true&style=flat)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 ## To use
 
