@@ -1,4 +1,4 @@
-# maven-badges-generator
+# maven-badges-generator [![Build Status](https://travis-ci.org/Ivan97/maven-badges-generator.svg?branch=master)](https://travis-ci.org/Ivan97/maven-badges-generator)
 
 
 ## To use

@@ -1,0 +1,20 @@
+anguage: java
+sudo: false
+os: linux
+jdk:
+  - oraclejdk8
+  - openjdk8
+  
+notification:
+  email:
+    recipients:
+      - yangkizhang@gmail.com
+    on_success: always
+    on_failure: always
+
+branches:
+  only:
+    - master
+
+script:
+  - mvn clean package
