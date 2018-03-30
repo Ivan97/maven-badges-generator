@@ -1,6 +1,7 @@
 package tech.iooo.coco.service;
 
 import java.util.List;
+import java.util.Objects;
 import org.apache.maven.repository.internal.MavenRepositorySystemUtils;
 import org.eclipse.aether.DefaultRepositorySystemSession;
 import org.eclipse.aether.RepositorySystem;
@@ -29,22 +30,29 @@ import org.springframework.stereotype.Service;
 @Service
 public class MavenRepositoryResolver {
 
-  private static RepositorySystem newRepositorySystem() {
-    DefaultServiceLocator locator = MavenRepositorySystemUtils.newServiceLocator();
-    locator.addService(RepositoryConnectorFactory.class, BasicRepositoryConnectorFactory.class);
-    locator.addService(TransporterFactory.class, FileTransporterFactory.class);
-    locator.addService(TransporterFactory.class, HttpTransporterFactory.class);
+  private RepositorySystem repositorySystem;
+  private RepositorySystemSession repositorySystemSession;
 
-    return locator.getService(RepositorySystem.class);
+  private RepositorySystemSession newSession(RepositorySystem system) {
+    if (Objects.isNull(repositorySystemSession)) {
+      DefaultRepositorySystemSession session = MavenRepositorySystemUtils.newSession();
+      LocalRepository localRepo = new LocalRepository("target/local-repo");
+      session.setLocalRepositoryManager(system.newLocalRepositoryManager(session, localRepo));
+      repositorySystemSession = session;
+    }
+
+    return repositorySystemSession;
   }
 
-  private static RepositorySystemSession newSession(RepositorySystem system) {
-    DefaultRepositorySystemSession session = MavenRepositorySystemUtils.newSession();
-
-    LocalRepository localRepo = new LocalRepository("target/local-repo");
-    session.setLocalRepositoryManager(system.newLocalRepositoryManager(session, localRepo));
-
-    return session;
+  private RepositorySystem newRepositorySystem() {
+    if (Objects.isNull(repositorySystem)) {
+      DefaultServiceLocator locator = MavenRepositorySystemUtils.newServiceLocator();
+      locator.addService(RepositoryConnectorFactory.class, BasicRepositoryConnectorFactory.class);
+      locator.addService(TransporterFactory.class, FileTransporterFactory.class);
+      locator.addService(TransporterFactory.class, HttpTransporterFactory.class);
+      repositorySystem = locator.getService(RepositorySystem.class);
+    }
+    return repositorySystem;
   }
 
   public String resolve(String groupId, String artifactId) {
