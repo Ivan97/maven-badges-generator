@@ -28,6 +28,7 @@ public class BadgeGenerateController {
     return REDIRECT_TO + "https://github.com/Ivan97/maven-badges-generator";
   }
 
+  @Deprecated
   @GetMapping("/image/{groupId}/{artifactId}")
   public String redirectDependencyToImage(@PathVariable String groupId,
       @PathVariable String artifactId) {
@@ -35,7 +36,7 @@ public class BadgeGenerateController {
         .generate(mavenRepositoryResolver.resolve(groupId, artifactId));
   }
 
-
+  @Deprecated
   @GetMapping("/dependency/{groupId}/{artifactId}")
   public String redirectToRepository(@PathVariable String groupId,
       @PathVariable String artifactId) {
@@ -50,7 +51,8 @@ public class BadgeGenerateController {
       @RequestParam(required = false, defaultValue = "brightgreen") String color) {
     return REDIRECT_TO + ImageGenerator
         .generate(mavenRepositoryResolver.resolve(groupId, artifactId),
-            ColorEnum.valueOf(color.toUpperCase()), StyleEnum.valueOf(style.toUpperCase()));
+            ColorEnum.valueOf(color.replaceAll("-", "_").toUpperCase()),
+            StyleEnum.valueOf(style.replaceAll("-", "_").toUpperCase()));
   }
 
   @GetMapping("/maven-central/{groupId}/{artifactId}")
