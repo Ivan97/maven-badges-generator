@@ -26,7 +26,7 @@ for example:
 
 **note**: The `flat_square` and `for_the_badge` style is splited by `_` mark.
 
-[![Maven Central](http://localhost:8080/maven-central/tech.iooo.coco/iooo-distribution-config/badge.svg?color=orange&style=flat_square)](https://maven-badges-generator.herokuapp.com/maven-central/tech.iooo.coco/iooo-distribution-config)
+[![Maven Central](https://maven-badges-generator.herokuapp.com/maven-central/tech.iooo.coco/iooo-distribution-config/badge.svg?color=orange&style=flat_square)](https://maven-badges-generator.herokuapp.com/maven-central/tech.iooo.coco/iooo-distribution-config)
 
 ## available color
 
