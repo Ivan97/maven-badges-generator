@@ -1,8 +1,8 @@
 package tech.iooo.coco;
 
 import io.vertx.core.Vertx;
-import java.io.IOException;
-import java.net.InetAddress;
+import io.vertx.ext.web.client.WebClient;
+import io.vertx.ext.web.client.WebClientOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationPreparedEvent;
@@ -20,17 +20,19 @@ public class Keepalive implements ApplicationListener<ApplicationPreparedEvent> 
   @Override
   public void onApplicationEvent(ApplicationPreparedEvent applicationPreparedEvent) {
     Vertx vertx = Vertx.vertx();
-    //for the free dynos will go to sleep after 30 minutes of inactivity
-    vertx.setPeriodic(25 * 60 * 1000, click -> {
-          String ipAddress = "www.baidu.com";
-          try {
-            if (logger.isDebugEnabled()) {
-              logger.debug("baidu reachable:{}", InetAddress.getByName(ipAddress).isReachable(5000));
-            }
-          } catch (IOException e) {
-            e.printStackTrace();
+
+    WebClientOptions options = new WebClientOptions()
+        .setConnectTimeout(2000)
+        .setUserAgent("iooo.tech/maven-badge-generator").setKeepAlive(false);
+    WebClient webClient = WebClient.create(vertx, options);
+
+    vertx.setPeriodic(25 * 60 * 1000, click ->
+        webClient.get(80, "maven-badges.iooo.tech", "/").send(event -> {
+          if (event.succeeded()) {
+            logger.info("statusCode:{}", event.result().statusCode());
+          } else {
+            logger.error("", event.cause());
           }
-        }
-    );
+        }));
   }
 }
