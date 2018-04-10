@@ -15,11 +15,11 @@ public class ImageGenerator {
 
 
   public static String generate(String version) {
-    return generate(version, ColorEnum.BRIGHTGREEN, StyleEnum.PLASTIC);
+    return generate(version, ColorEnum.BRIGHTGREEN, StyleEnum.FLAT);
   }
 
   public static String generate(String version, ColorEnum color) {
-    return generate(version, color, StyleEnum.PLASTIC);
+    return generate(version, color, StyleEnum.FLAT);
   }
 
   public static String generate(String version, StyleEnum style) {
