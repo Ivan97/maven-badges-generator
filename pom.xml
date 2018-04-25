@@ -50,7 +50,20 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
+    <vertx.version>3.5.1</vertx.version>
   </properties>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-dependencies</artifactId>
+        <version>${vertx.version}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <dependencies>
     <dependency>
@@ -90,12 +103,17 @@
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-core</artifactId>
-      <version>3.5.1</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-web-client</artifactId>
-      <version>3.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.newrelic.agent.java</groupId>
+      <artifactId>newrelic-java</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+      <type>zip</type>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -123,6 +141,29 @@
         <configuration>
           <executable>true</executable>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.0.2</version>
+        <executions>
+          <execution>
+            <id>unpack-newrelic</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeGroupIds>com.newrelic.agent.java</includeGroupIds>
+              <includeArtifactIds>newrelic-java</includeArtifactIds>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+              <outputDirectory>${project.basedir}</outputDirectory>
+              <destFileName>newrelic</destFileName>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
