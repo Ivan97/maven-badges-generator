@@ -150,7 +150,6 @@
               <overWriteSnapshots>false</overWriteSnapshots>
               <overWriteIfNewer>true</overWriteIfNewer>
               <outputDirectory>${project.basedir}</outputDirectory>
-              <destFileName>newrelic</destFileName>
             </configuration>
           </execution>
         </executions>
