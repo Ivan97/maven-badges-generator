@@ -22,12 +22,12 @@ public class Keepalive implements ApplicationListener<ApplicationPreparedEvent> 
     Vertx vertx = Vertx.vertx();
 
     WebClientOptions options = new WebClientOptions()
-        .setConnectTimeout(2000)
+        .setConnectTimeout(3000)
         .setUserAgent("iooo.tech/maven-badge-generator").setKeepAlive(false);
     WebClient webClient = WebClient.create(vertx, options);
 
     vertx.setPeriodic(25 * 60 * 1000, click ->
-        webClient.get(80, "maven-badges.iooo.tech", "/").send(event -> {
+        webClient.get(80, "www.iooo.tech", "/").send(event -> {
           if (event.succeeded()) {
             logger.info("statusCode:{}", event.result().statusCode());
           } else {
