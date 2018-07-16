@@ -1,1 +1,1 @@
-web: java -javaagent:newrelic/newrelic.jar -jar target/maven-badges-generator.jar --server.port=$PORT
+web: -jar target/maven-badges-generator.jar --server.port=$PORT
