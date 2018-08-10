@@ -41,7 +41,7 @@ public class BadgeGenerateController {
   public String redirectToClassicRepository(@PathVariable String groupId,
       @PathVariable String artifactId) {
     return REDIRECT_TO + "https://search.maven.org/classic/#artifactdetails%7C" + groupId + "%7C"
-        + artifactId + "%7C" + mavenRepositoryResolver.resolve(groupId, artifactId) + "%7Cpom";
+        + artifactId + "%7C" + mavenRepositoryResolver.resolve(groupId, artifactId) + "%7Cjar";
   }
 
   @Deprecated
@@ -49,7 +49,7 @@ public class BadgeGenerateController {
   public String redirectToRepository(@PathVariable String groupId,
       @PathVariable String artifactId) {
     return REDIRECT_TO + "https://search.maven.org/artifact/" + groupId + "/"
-        + artifactId + "/" + mavenRepositoryResolver.resolve(groupId, artifactId) + "/pom";
+        + artifactId + "/" + mavenRepositoryResolver.resolve(groupId, artifactId) + "/jar";
   }
 
   @GetMapping("/maven-central/{groupId}/{artifactId}/badge.svg")
@@ -67,12 +67,12 @@ public class BadgeGenerateController {
   public String originalServiceClassicRepository(@PathVariable String groupId,
       @PathVariable String artifactId) {
     return REDIRECT_TO + "https://search.maven.org/classic/#artifactdetails%7C" + groupId + "%7C"
-        + artifactId + "%7C" + mavenRepositoryResolver.resolve(groupId, artifactId) + "%7Cpom";
+        + artifactId + "%7C" + mavenRepositoryResolver.resolve(groupId, artifactId) + "%7Cjar";
   }
 
   @GetMapping("/maven-central/{groupId}/{artifactId}")
   public String originalServiceRepository(@PathVariable String groupId, @PathVariable String artifactId) {
     return REDIRECT_TO + "https://search.maven.org/artifact/" + groupId + "/"
-        + artifactId + "/" + mavenRepositoryResolver.resolve(groupId, artifactId) + "/pom";
+        + artifactId + "/" + mavenRepositoryResolver.resolve(groupId, artifactId) + "/jar";
   }
 }
