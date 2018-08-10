@@ -58,7 +58,7 @@ public class BadgeGenerateController {
   @GetMapping("/maven-central/{groupId}/{artifactId}")
   public String originalServiceRepository(@PathVariable String groupId,
       @PathVariable String artifactId) {
-    return REDIRECT_TO + "http://search.maven.org/#artifactdetails%7C" + groupId + "%7C"
+    return REDIRECT_TO + "http://search.maven.org/classic/#artifactdetails%7C" + groupId + "%7C"
         + artifactId + "%7C" + mavenRepositoryResolver.resolve(groupId, artifactId) + "%7Cpom";
   }
 }
