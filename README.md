@@ -18,7 +18,33 @@ for example:
 
 [![Maven Central](https://maven-badges-generator.herokuapp.com/maven-central/tech.iooo.coco/iooo-distribution-config/badge.svg)](https://maven-badges-generator.herokuapp.com/maven-central/tech.iooo.coco/iooo-distribution-config)
 
-### 2.Modify style or color
+### 2.Set the repository version
+- new version,redirect to [https://search.maven.org/](https://search.maven.org/)
+
+```
+[![Maven Central](https://maven-badges-generator.herokuapp.com/maven-central/${groupId}/${artifactId}/badge.svg?style={style}&color={color})](https://maven-badges-generator.herokuapp.com/maven-central/${groupId}/${artifactId})
+```
+- classic version,redirect to [https://search.maven.org/classic](https://search.maven.org/classic)
+
+```
+[![Maven Central](https://maven-badges-generator.herokuapp.com/maven-central/${groupId}/${artifactId}/badge.svg?style={style}&color={color})](https://maven-badges-generator.herokuapp.com/maven-central/classic/${groupId}/${artifactId})
+```
+
+for example:
+
+- new version
+
+```
+[![Maven Central](https://maven-badges-generator.herokuapp.com/maven-central/tech.iooo.coco/iooo-distribution-config/badge.svg?color=orange&style=flat-square)](https://maven-badges-generator.herokuapp.com/maven-central/tech.iooo.coco/iooo-distribution-config)
+```
+
+- classic version
+
+```
+[![Maven Central](https://maven-badges-generator.herokuapp.com/maven-central/tech.iooo.coco/iooo-distribution-config/badge.svg?color=orange&style=flat-square)](https://maven-badges-generator.herokuapp.com/maven-central/classic/tech.iooo.coco/iooo-distribution-config)
+```
+
+### 3.Modify style or color
 
 ```
 [![Maven Central](https://maven-badges-generator.herokuapp.com/maven-central/${groupId}/${artifactId}/badge.svg?style={style}&color={color})](https://maven-badges-generator.herokuapp.com/maven-central/${groupId}/${artifactId})
