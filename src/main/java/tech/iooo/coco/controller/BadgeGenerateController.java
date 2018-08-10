@@ -37,11 +37,19 @@ public class BadgeGenerateController {
   }
 
   @Deprecated
+  @GetMapping("/dependency/classic/{groupId}/{artifactId}")
+  public String redirectToClassicRepository(@PathVariable String groupId,
+      @PathVariable String artifactId) {
+    return REDIRECT_TO + "https://search.maven.org/classic/#artifactdetails%7C" + groupId + "%7C"
+        + artifactId + "%7C" + mavenRepositoryResolver.resolve(groupId, artifactId) + "%7Cpom";
+  }
+
+  @Deprecated
   @GetMapping("/dependency/{groupId}/{artifactId}")
   public String redirectToRepository(@PathVariable String groupId,
       @PathVariable String artifactId) {
-    return REDIRECT_TO + "http://search.maven.org/classic/#artifactdetails%7C" + groupId + "%7C"
-        + artifactId + "%7C" + mavenRepositoryResolver.resolve(groupId, artifactId) + "%7Cpom";
+    return REDIRECT_TO + "https://search.maven.org/artifact/" + groupId + "/"
+        + artifactId + "/" + mavenRepositoryResolver.resolve(groupId, artifactId) + "/pom";
   }
 
   @GetMapping("/maven-central/{groupId}/{artifactId}/badge.svg")
@@ -55,10 +63,16 @@ public class BadgeGenerateController {
             StyleEnum.valueOf(style.replaceAll("-", "_").toUpperCase()));
   }
 
-  @GetMapping("/maven-central/{groupId}/{artifactId}")
-  public String originalServiceRepository(@PathVariable String groupId,
+  @GetMapping("/maven-central/classic/{groupId}/{artifactId}")
+  public String originalServiceClassicRepository(@PathVariable String groupId,
       @PathVariable String artifactId) {
-    return REDIRECT_TO + "http://search.maven.org/classic/#artifactdetails%7C" + groupId + "%7C"
+    return REDIRECT_TO + "https://search.maven.org/classic/#artifactdetails%7C" + groupId + "%7C"
         + artifactId + "%7C" + mavenRepositoryResolver.resolve(groupId, artifactId) + "%7Cpom";
+  }
+
+  @GetMapping("/maven-central/{groupId}/{artifactId}")
+  public String originalServiceRepository(@PathVariable String groupId, @PathVariable String artifactId) {
+    return REDIRECT_TO + "https://search.maven.org/artifact/" + groupId + "/"
+        + artifactId + "/" + mavenRepositoryResolver.resolve(groupId, artifactId) + "/pom";
   }
 }
