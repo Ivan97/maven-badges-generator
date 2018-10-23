@@ -16,7 +16,7 @@
   <parent>
     <groupId>tech.iooo.boot</groupId>
     <artifactId>iooo-boot-parent</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2-SNAPSHOT</version>
   </parent>
   
   <licenses>
@@ -92,27 +92,22 @@
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-aether-provider</artifactId>
-      <version>3.3.9</version>
     </dependency>
     <dependency>
       <groupId>commons-net</groupId>
       <artifactId>commons-net</artifactId>
-      <version>3.6</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.aether</groupId>
       <artifactId>aether-connector-basic</artifactId>
-      <version>1.1.0</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.aether</groupId>
       <artifactId>aether-transport-file</artifactId>
-      <version>1.1.0</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.aether</groupId>
       <artifactId>aether-transport-http</artifactId>
-      <version>1.1.0</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -125,7 +120,7 @@
     <dependency>
       <groupId>com.newrelic.agent.java</groupId>
       <artifactId>newrelic-java</artifactId>
-      <version>4.0.1</version>
+      <version>${newrelic.version}</version>
       <scope>provided</scope>
       <type>zip</type>
     </dependency>
