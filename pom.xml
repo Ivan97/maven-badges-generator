@@ -16,7 +16,7 @@
   <parent>
     <groupId>tech.iooo.boot</groupId>
     <artifactId>iooo-boot-parent</artifactId>
-    <version>1.1.2-SNAPSHOT</version>
+    <version>1.1.1</version>
   </parent>
   
   <licenses>
@@ -179,19 +179,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <repositories>
-    <repository>
-      <id>oss</id>
-      <name>oss</name>
-      <url>https://oss.sonatype.org/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
 
 </project>
