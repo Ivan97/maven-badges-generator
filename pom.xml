@@ -16,7 +16,7 @@
   <parent>
     <groupId>tech.iooo.boot</groupId>
     <artifactId>iooo-boot-parent</artifactId>
-    <version>1.1.2-SNAPSHOT</version>
+    <version>1.1.6-SNAPSHOT</version>
   </parent>
   
   <licenses>
@@ -76,6 +76,14 @@
       <artifactId>iooo-boot-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>tech.iooo.boot</groupId>
+      <artifactId>iooo-boot-commonly-used</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>tech.iooo.boot</groupId>
+      <artifactId>iooo-spring-boot-vertx-starter</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
@@ -83,19 +91,10 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-      <scope>runtime</scope>
-    </dependency>
+    
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-aether-provider</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>commons-net</groupId>
-      <artifactId>commons-net</artifactId>
     </dependency>
     <dependency>
       <groupId>org.eclipse.aether</groupId>
@@ -111,16 +110,11 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.vertx</groupId>
       <artifactId>vertx-web-client</artifactId>
     </dependency>
     <dependency>
       <groupId>com.newrelic.agent.java</groupId>
       <artifactId>newrelic-java</artifactId>
-      <version>${newrelic.version}</version>
       <scope>provided</scope>
       <type>zip</type>
     </dependency>
@@ -135,9 +129,19 @@
       <optional>true</optional>
     </dependency>
     <dependency>
+      <groupId>tech.iooo.boot</groupId>
+      <artifactId>iooo-boot-test-bundle</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <scope>runtime</scope>
     </dependency>
   </dependencies>
 
@@ -161,23 +165,23 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
-        <!--<executions>-->
-          <!--<execution>-->
-            <!--<id>unpack-newrelic</id>-->
-            <!--<phase>package</phase>-->
-            <!--<goals>-->
-              <!--<goal>unpack-dependencies</goal>-->
-            <!--</goals>-->
-            <!--<configuration>-->
-              <!--<includeGroupIds>com.newrelic.agent.java</includeGroupIds>-->
-              <!--<includeArtifactIds>newrelic-java</includeArtifactIds>-->
-              <!--<overWriteReleases>false</overWriteReleases>-->
-              <!--<overWriteSnapshots>false</overWriteSnapshots>-->
-              <!--<overWriteIfNewer>true</overWriteIfNewer>-->
-              <!--<outputDirectory>${project.basedir}</outputDirectory>-->
-            <!--</configuration>-->
-          <!--</execution>-->
-        <!--</executions>-->
+        <executions>
+          <execution>
+            <id>unpack-newrelic</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeGroupIds>com.newrelic.agent.java</includeGroupIds>
+              <includeArtifactIds>newrelic-java</includeArtifactIds>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+              <outputDirectory>${project.basedir}</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
