@@ -11,4 +11,6 @@ import lombok.experimental.UtilityClass;
 public class Constants {
 
   public static final String DEFAULT_DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+  public static final String REDIRECT_TO = "redirect:";
 }

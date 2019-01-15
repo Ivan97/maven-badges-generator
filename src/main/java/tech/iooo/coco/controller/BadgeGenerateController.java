@@ -1,5 +1,7 @@
 package tech.iooo.coco.controller;
 
+import static tech.iooo.coco.configuration.Constants.REDIRECT_TO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +19,6 @@ import tech.iooo.coco.service.MavenRepositoryResolver;
  */
 @Controller
 public class BadgeGenerateController {
-
-  private static final String REDIRECT_TO = "redirect:";
 
   @Autowired
   private MavenRepositoryResolver mavenRepositoryResolver;
