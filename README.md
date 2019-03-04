@@ -77,6 +77,13 @@ for example:
 
 
 
+### 4.Public repository (Snapshot included)
+```
+[![Maven Public](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.coco/iooo-distribution-config/badge.svg?color=orange&style=flat-square)](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.coco/iooo-distribution-config)
+```
+[![Maven Public](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.coco/iooo-distribution-config/badge.svg?color=orange&style=flat-square)](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.coco/iooo-distribution-config)
+
+
 @Deprecated
 ```
 [![Maven Central](https://maven-badges-generator.herokuapp.com/image/tech.iooo.coco/iooo-distribution-config)](https://maven-badges-generator.herokuapp.com/dependency/tech.iooo.coco/iooo-distribution-config)
@@ -85,7 +92,7 @@ for example:
 [![Maven Central](https://maven-badges-generator.herokuapp.com/image/tech.iooo.coco/iooo-distribution-config)](https://maven-badges-generator.herokuapp.com/dependency/tech.iooo.coco/iooo-distribution-config)
 
 
-with newrelic
+### * with newrelic
 ```
 web: java -javaagent:newrelic/newrelic.jar -jar target/maven-badges-generator.jar --server.port=$PORT
 ```

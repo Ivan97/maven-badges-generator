@@ -6,7 +6,7 @@
 	<!--###########################logger###########################-->
 
 	<logger name="io.netty" level="INFO"/>
-	<logger name="tech.iooo.boot" level="INFO"/>
+	<logger name="tech.iooo.boot" level="DEBUG"/>
 	<logger name="tech.iooo.coco" level="DEBUG"/>
 
 	<!--###########################/logger##########################-->
