@@ -79,9 +79,9 @@ for example:
 
 ### 4.Public repository (Snapshot included)
 ```
-[![Maven Public](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.coco/iooo-distribution-config/badge.svg?color=orange&style=flat-square)](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.coco/iooo-distribution-config)
+[![Maven Public](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.boot/iooo-boot-core/badge.svg)](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.boot/iooo-boot-core)
 ```
-[![Maven Public](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.coco/iooo-distribution-config/badge.svg?color=orange&style=flat-square)](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.coco/iooo-distribution-config)
+[![Maven Public](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.boot/iooo-boot-core/badge.svg)](https://maven-badges-generator.herokuapp.com/maven-public/tech.iooo.boot/iooo-boot-core)
 
 
 @Deprecated

@@ -1,5 +1,6 @@
 package tech.iooo.coco.controller;
 
+import static tech.iooo.coco.configuration.Constants.OSS_URL_SPLITER;
 import static tech.iooo.coco.configuration.Constants.REDIRECT_TO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,7 +92,7 @@ public class BadgeGenerateController {
 
   @GetMapping("/maven-public/{groupId}/{artifactId}")
   public String publicServiceRepository(@PathVariable String groupId, @PathVariable String artifactId) {
-    return REDIRECT_TO + Constants.PUBLIC_REPOSITORY + "/" + groupId.replaceAll("\\.", "/") + "/"
-        + artifactId + "/" + mavenRepositoryResolver.resolvePublic(groupId, artifactId);
+    return REDIRECT_TO + Constants.OSS_REPOSITORY_URL_PREFIX + OSS_URL_SPLITER + groupId + OSS_URL_SPLITER
+        + artifactId + OSS_URL_SPLITER + mavenRepositoryResolver.resolvePublic(groupId, artifactId);
   }
 }
