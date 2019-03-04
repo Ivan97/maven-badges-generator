@@ -20,7 +20,7 @@ public class MavenRepositoryResolverTest {
 
   @Test
   public void resolve() {
-    System.out.println(repositoryResolver.resolve("tech.iooo.boot", "iooo-boot-core"));
+    System.out.println(repositoryResolver.resolve("tech.iooo.boot", "iooo-boot"));
   }
 
   @Test

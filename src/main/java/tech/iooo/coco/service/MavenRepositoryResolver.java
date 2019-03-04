@@ -11,6 +11,7 @@ import org.eclipse.aether.connector.basic.BasicRepositoryConnectorFactory;
 import org.eclipse.aether.impl.DefaultServiceLocator;
 import org.eclipse.aether.repository.LocalRepository;
 import org.eclipse.aether.repository.RemoteRepository;
+import org.eclipse.aether.repository.RepositoryPolicy;
 import org.eclipse.aether.resolution.VersionRangeRequest;
 import org.eclipse.aether.resolution.VersionRangeResolutionException;
 import org.eclipse.aether.resolution.VersionRangeResult;
@@ -67,13 +68,24 @@ public class MavenRepositoryResolver {
     RepositorySystem repoSystem = newRepositorySystem();
     RepositorySystemSession session = newSession(repoSystem);
 
-    RemoteRepository central = new RemoteRepository.Builder(id, "default", Constants.REPOSITORY).build();
+    RemoteRepository remoteRepository;
+    if (Objects.equals(id, Constants.CENTRAL)) {
+      remoteRepository = new RemoteRepository.Builder(Constants.CENTRAL, "default", Constants.CENTRAL_REPOSITORY)
+          .setReleasePolicy(new RepositoryPolicy(true, RepositoryPolicy.UPDATE_POLICY_ALWAYS, RepositoryPolicy.CHECKSUM_POLICY_WARN))
+          .setSnapshotPolicy(new RepositoryPolicy(false, RepositoryPolicy.UPDATE_POLICY_ALWAYS, RepositoryPolicy.CHECKSUM_POLICY_WARN))
+          .build();
+    } else {
+      remoteRepository = new RemoteRepository.Builder(Constants.PUBLIC, "default", Constants.PUBLIC_REPOSITORY)
+          .setReleasePolicy(new RepositoryPolicy(true, RepositoryPolicy.UPDATE_POLICY_ALWAYS, RepositoryPolicy.CHECKSUM_POLICY_WARN))
+          .setSnapshotPolicy(new RepositoryPolicy(false, RepositoryPolicy.UPDATE_POLICY_ALWAYS, RepositoryPolicy.CHECKSUM_POLICY_WARN))
+          .build();
+    }
 
     Artifact artifact = new DefaultArtifact(groupId + ":" + artifactId + ":[0,)");
 
     VersionRangeRequest rangeRequest = new VersionRangeRequest();
     rangeRequest.setArtifact(artifact);
-    rangeRequest.addRepository(central);
+    rangeRequest.addRepository(remoteRepository);
     VersionRangeResult rangeResult = null;
     try {
       rangeResult = repoSystem.resolveVersionRange(session, rangeRequest);

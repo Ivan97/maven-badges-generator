@@ -14,7 +14,8 @@ public class Constants {
 
   public static final String REDIRECT_TO = "redirect:";
 
-  public static final String REPOSITORY = "https://oss.sonatype.org/content/groups/public";
+  public static final String PUBLIC_REPOSITORY = "https://oss.sonatype.org/content/groups/public";
+  public static final String CENTRAL_REPOSITORY = "https://repo1.maven.org/maven2";
 
   public static final String CENTRAL = "central";
 

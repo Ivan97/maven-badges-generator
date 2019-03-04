@@ -91,7 +91,7 @@ public class BadgeGenerateController {
 
   @GetMapping("/maven-public/{groupId}/{artifactId}")
   public String publicServiceRepository(@PathVariable String groupId, @PathVariable String artifactId) {
-    return REDIRECT_TO + Constants.REPOSITORY + "/" + groupId.replaceAll("\\.", "/") + "/"
+    return REDIRECT_TO + Constants.PUBLIC_REPOSITORY + "/" + groupId.replaceAll("\\.", "/") + "/"
         + artifactId + "/" + mavenRepositoryResolver.resolvePublic(groupId, artifactId);
   }
 }
