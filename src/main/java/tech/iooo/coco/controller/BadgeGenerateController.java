@@ -70,7 +70,7 @@ public class BadgeGenerateController {
   public String originalPublicServiceBadge(@PathVariable String groupId,
       @PathVariable String artifactId,
       @RequestParam(required = false, defaultValue = "plastic") String style,
-      @RequestParam(required = false, defaultValue = "brightgreen") String color) {
+      @RequestParam(required = false, defaultValue = "orange") String color) {
     return REDIRECT_TO + ImageGenerator.generatePublic(mavenRepositoryResolver.resolvePublic(groupId, artifactId),
         ColorEnum.valueOf(color.replaceAll("-", "_").toUpperCase()),
         StyleEnum.valueOf(style.replaceAll("-", "_").toUpperCase())

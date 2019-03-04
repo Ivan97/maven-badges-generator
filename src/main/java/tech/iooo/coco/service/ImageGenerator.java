@@ -28,15 +28,15 @@ public class ImageGenerator {
   }
 
   public static String generatePublic(String version) {
-    return generate(Constants.PUBLIC, version.replaceAll("-","--"), ColorEnum.BRIGHTGREEN, StyleEnum.FLAT);
+    return generate(Constants.PUBLIC, version, ColorEnum.BRIGHTGREEN, StyleEnum.FLAT);
   }
 
   public static String generatePublic(String version, ColorEnum color) {
-    return generate(Constants.PUBLIC, version.replaceAll("-","--"), color, StyleEnum.FLAT);
+    return generate(Constants.PUBLIC, version, color, StyleEnum.FLAT);
   }
 
   public static String generatePublic(String version, StyleEnum style) {
-    return generate(Constants.PUBLIC, version.replaceAll("-","--"), ColorEnum.BRIGHTGREEN, style);
+    return generate(Constants.PUBLIC, version, ColorEnum.BRIGHTGREEN, style);
   }
 
   public static String generate(String type, String version, StyleEnum style) {
@@ -44,14 +44,14 @@ public class ImageGenerator {
   }
 
   public static String generate(String version, ColorEnum color, StyleEnum style) {
-    return String.format(URL_TEMPLATE, Constants.CENTRAL, version, color) + STYLE_SUFFIX + style;
+    return generate(Constants.CENTRAL, version, color, style);
   }
 
   public static String generatePublic(String version, ColorEnum color, StyleEnum style) {
-    return String.format(URL_TEMPLATE, Constants.PUBLIC, version.replaceAll("-","--"), color) + STYLE_SUFFIX + style;
+    return generate(Constants.PUBLIC, version, color, style);
   }
 
   public static String generate(String type, String version, ColorEnum color, StyleEnum style) {
-    return String.format(URL_TEMPLATE, type, version, color) + STYLE_SUFFIX + style;
+    return String.format(URL_TEMPLATE, type, version.replaceAll("-", "--"), color) + STYLE_SUFFIX + style;
   }
 }
