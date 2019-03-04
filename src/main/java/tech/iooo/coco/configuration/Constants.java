@@ -13,10 +13,4 @@ public class Constants {
   public static final String DEFAULT_DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
   public static final String REDIRECT_TO = "redirect:";
-
-  public static final String REPOSITORY = "https://oss.sonatype.org/content/groups/public";
-
-  public static final String CENTRAL = "central";
-
-  public static final String PUBLIC = "public";
 }
